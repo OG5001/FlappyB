@@ -13,12 +13,11 @@
         </Grid.RowDefinitions>
         <Canvas x:Name="palya" Background="ForestGreen" Grid.Row="1">
             <Button x:Name="bt" Content="🐼" Canvas.Left="65" Canvas.Top="143" Height="34" Width="37" Click="bt_Click" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False"/>
-            <TextBlock Canvas.Left="459" TextWrapping="Wrap" Text="" HorizontalAlignment="Left" Height="98" VerticalAlignment="Center" Background="AliceBlue" Width="52"/>
-            <TextBlock Canvas.Left="459" TextWrapping="Wrap" Text="" Canvas.Top="208" Height="146" Width="52" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Honeydew"/>
+
 
         </Canvas>
         <Button Content="Easy" HorizontalAlignment="Left" Margin="27,14,0,0" VerticalAlignment="Top" Click="Button_Click" Height="46" Width="123" Background="LightGreen"/>
-        <Button Content="Medium" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" Height="46" Width="136" Background="Gold"/>
-        <Button Content="Hard" HorizontalAlignment="Left" Margin="641,14,0,0" VerticalAlignment="Top" Height="46" Width="125" Background="Red"/>
+        <Button Content="Medium" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" Height="46" Width="136" Background="Gold" Click="Button_Click_1"/>
+        <Button Content="Hard" HorizontalAlignment="Left" Margin="641,14,0,0" VerticalAlignment="Top" Height="46" Width="125" Background="Red" Click="Button_Click_2"/>
     </Grid>
 </Window>
