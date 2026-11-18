@@ -11,7 +11,8 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Canvas x:Name="palya" Background="ForestGreen" Grid.Row="1">
+        <Image Grid.Row="1" Source="/Jung.jpg" Stretch="Fill"></Image>
+        <Canvas x:Name="palya" Grid.Row="1">
             <Button x:Name="bt" Content="🐼" Canvas.Left="65" Canvas.Top="143" Height="34" Width="37" Click="bt_Click" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False"/>
 
 

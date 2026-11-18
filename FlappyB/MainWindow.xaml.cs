@@ -59,18 +59,24 @@ namespace FlappyB
 
         private void AkadalyokLetrehozasa()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Rectangle felso = new Rectangle();
                 Rectangle also = new Rectangle();
 
                 felso.Width = 52;
-                felso.Height = 100;
-                felso.Fill = Brushes.AliceBlue;
-
                 also.Width = 52;
-                also.Height = 146;
-                also.Fill = Brushes.Honeydew;
+
+                ImageBrush akadalyKep = new ImageBrush();
+
+                akadalyKep.ImageSource = new BitmapImage(
+                    new Uri("pack://application:,,,/Kepek/akadaly.jpg")
+                );
+
+                akadalyKep.Stretch = Stretch.Fill;
+
+                felso.Fill = akadalyKep;
+                also.Fill = akadalyKep;
 
                 double x = palya.ActualWidth + i * 260;
 
@@ -149,7 +155,6 @@ namespace FlappyB
             }
         }
 
-        // Ütközésvizsgálat
         private void UtkozesVizsgalat()
         {
             double x = Canvas.GetLeft(bt);
@@ -205,8 +210,9 @@ namespace FlappyB
 
             UtkozesVizsgalat();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void gameStart()
         {
+            point.Text = "Pontszám: 0";
             timer.Stop();
 
             Canvas.SetLeft(bt, 40);
@@ -238,6 +244,12 @@ namespace FlappyB
             timer.Start();
 
             this.Focus();
+
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            gameStart();
         }
 
         private void bt_Click(object sender, RoutedEventArgs e)
@@ -247,17 +259,25 @@ namespace FlappyB
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            gameStart();
+
 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            gameStart();
+            Rectangle kod = new Rectangle();
+            kod.Width = 1000;
+            kod.Height = 1000;
+            Canvas.SetLeft(kod, 200);
+            kod.Fill = Brushes.LightGray;
+            palya.Children.Add(kod);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            gameStart();
         }
     }
 }
