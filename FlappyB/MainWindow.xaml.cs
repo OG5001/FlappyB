@@ -244,6 +244,7 @@ namespace FlappyB
             timer.Start();
 
             this.Focus();
+            
 
 
         }
@@ -270,8 +271,9 @@ namespace FlappyB
             Rectangle kod = new Rectangle();
             kod.Width = 1000;
             kod.Height = 1000;
-            Canvas.SetLeft(kod, 200);
+            Canvas.SetLeft(kod, 0);
             kod.Fill = Brushes.LightGray;
+            kod.Opacity = 0.9;
             palya.Children.Add(kod);
         }
 
