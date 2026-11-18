@@ -17,11 +17,13 @@ namespace FlappyB
     {
         public Rectangle Felso { get; set; }
         public Rectangle Also { get; set; }
+        public bool Pontozva { get; set; }
 
         public Akadaly(Rectangle felso, Rectangle also)
         {
             Felso = felso;
             Also = also;
+            Pontozva = false;
         }
     }
     public partial class MainWindow : Window
@@ -31,6 +33,7 @@ namespace FlappyB
         private double sebesseg = 0;
         private double gravitacio = 0.5;
         private double akadalySebesseg = 3;
+        int currentScore = 0;
 
         private List<Akadaly> akadalyok = new List<Akadaly>();
 
@@ -43,6 +46,7 @@ namespace FlappyB
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(20);
             timer.Tick += Timer_Tick;
+            point.Text = "Pontszám: 0";
 
             PreviewKeyDown += MainWindow_KeyDown;
 
@@ -121,7 +125,6 @@ namespace FlappyB
                 {
                     x = palya.ActualWidth + 100;
 
-                    // Új véletlenszerű magasság
                     double felsoMagassag = random.Next(50, 140);
                     double res = 120;
 
@@ -132,8 +135,15 @@ namespace FlappyB
                     akadaly.Also.Height = palya.ActualHeight - alsoTop;
 
                     Canvas.SetTop(akadaly.Also, alsoTop);
+                    akadaly.Pontozva = false;
                 }
+                if (!akadaly.Pontozva && x + akadaly.Felso.Width <= Canvas.GetLeft(bt))
+                {
+                    currentScore++;
+                    point.Text = $"Pontszám: {currentScore}";
+                    akadaly.Pontozva = true;
 
+                }
                 Canvas.SetLeft(akadaly.Felso, x);
                 Canvas.SetLeft(akadaly.Also, x);
             }
@@ -241,6 +251,11 @@ namespace FlappyB
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
         }
